@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-LABEL org.opencontainers.image.description Prebuild container setup for building react-native apk or aab
+LABEL org.opencontainers.image.description=Prebuild container setup for building react-native apk or aab
 LABEL org.opencontainers.image.authors skull.saders18@gmail.com
 # set ARG to bypass dialog error \
 # "debconf: unable to initialize frontend: Dialog debconf: (TERM is not set, so the dialog frontend is not usable.) debconf: falling back to frontend: Readline Configuring tzdata" \
@@ -11,7 +11,7 @@ ARG SDK_VERSION=7583922
 ARG NDK_VERSION=21.4.7075529
 ARG CMAKE_VERSION=3.10.2.4988404
 ARG ANDROID_VERSION=android-31
-ARG ANDROID_BUILD_TOOLS_VERSION=30.0.2
+ARG ANDROID_BUILD_TOOLS_VERSION=31.0.0
 
 RUN apt update && apt install -y curl && \
 curl -sL https://deb.nodesource.com/setup_${NODE_VERSION} | bash - && \
