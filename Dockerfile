@@ -20,7 +20,7 @@ curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
 apt update && apt -y install yarn && \
 apt install -y nodejs openjdk-11-jre-headless python3
-RUN apt install -y expect git openjdk-8-jdk-headless wget unzip vim && \
+RUN apt install -y expect git openjdk-11-jdk-headless wget unzip vim && \
 wget https://dl.google.com/android/repository/commandlinetools-linux-${SDK_VERSION}_latest.zip
 RUN mkdir -p Android/Sdk && unzip commandlinetools-linux-${SDK_VERSION}_latest.zip -d Android/Sdk/cmdline-tools && \
 mv Android/Sdk/cmdline-tools/cmdline-tools Android/Sdk/cmdline-tools/latest
