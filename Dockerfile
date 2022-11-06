@@ -4,7 +4,7 @@ FROM ubuntu:20.04
 # when installing git
 ARG DEBIAN_FRONTEND=noninteractive
 ARG TZ=Asia/Jakarta
-ARG NODE_VERSION=14.x
+ARG NODE_VERSION=16.x
 ARG SDK_VERSION=7583922
 ARG NDK_VERSION=21.4.7075529
 ARG CMAKE_VERSION=3.10.2.4988404
@@ -17,7 +17,7 @@ apt -y install gcc g++ make && \
 curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
 apt update && apt -y install yarn && \
-apt install -y nodejs openjdk-8-jre-headless python3
+apt install -y nodejs openjdk-11-jre-headless python3
 RUN apt install -y expect git openjdk-8-jdk-headless wget unzip vim && \
 wget https://dl.google.com/android/repository/commandlinetools-linux-${SDK_VERSION}_latest.zip
 RUN mkdir -p Android/Sdk && unzip commandlinetools-linux-${SDK_VERSION}_latest.zip -d Android/Sdk/cmdline-tools && \
