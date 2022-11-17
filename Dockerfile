@@ -15,10 +15,7 @@ ARG ANDROID_BUILD_TOOLS_VERSION=31.0.0
 
 RUN apt update && apt install -y curl && \
 curl -sL https://deb.nodesource.com/setup_${NODE_VERSION} | bash - && \
-apt -y install gcc g++ make && \
-curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-apt update && apt -y install yarn && \
+apt -y install gcc g++ make && apt update && \
 apt install -y nodejs openjdk-11-jre-headless python3
 RUN apt install -y expect git openjdk-11-jdk-headless wget unzip vim && \
 wget https://dl.google.com/android/repository/commandlinetools-linux-${SDK_VERSION}_latest.zip
@@ -36,5 +33,7 @@ RUN sdkmanager "platform-tools" "platforms;${ANDROID_VERSION}" "build-tools;${AN
 RUN sdkmanager --install "ndk;${NDK_VERSION}"
 RUN sdkmanager --install "cmake;${CMAKE_VERSION}"
 RUN sdkmanager --licenses
+RUN corepack enable
+RUN yarn --version
 
 CMD ["/bin/sh"]
